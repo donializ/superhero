@@ -3,47 +3,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="5dp">
 
-    <ImageView
-        android:id="@+id/ivAvatar"
-        android:src="@drawable/ic_person"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:scaleType="centerCrop" />
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:elevation="10dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingEnd="10dp">
+            <ImageView
+                android:id="@+id/ivAvatar"
+                android:src="@drawable/ic_person"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:scaleType="centerCrop" />
 
-    <TextView
-        android:id="@+id/tvSuperhero"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/ivAvatar"
-        android:layout_toEndOf="@+id/ivAvatar"
-        tools:text= "Iron Man" />
-    <TextView
-        android:id="@+id/tvRealName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:layout_below="@+id/tvSuperhero"
-        android:layout_toRightOf="@+id/ivAvatar"
-        android:layout_toEndOf="@+id/ivAvatar"
-        tools:text = "Anthony Stark"/>
-    <TextView
-        android:id="@+id/tvPublisher"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="italic"
-        android:textSize="15sp"
-        android:layout_below="@+id/tvRealName"
-        tools:text = "Marvel"
-        android:layout_alignParentRight="false"
-        android:layout_alignParentEnd="true" />
+            <TextView
+                android:id="@+id/tvSuperhero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/ivAvatar"
+                android:layout_toEndOf="@+id/ivAvatar"
+                tools:text= "Iron Man" />
+            <TextView
+                android:id="@+id/tvRealName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:layout_below="@+id/tvSuperhero"
+                android:layout_toRightOf="@+id/ivAvatar"
+                android:layout_toEndOf="@+id/ivAvatar"
+                tools:text = "Anthony Stark"/>
+            <TextView
+                android:id="@+id/tvPublisher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:textSize="15sp"
+                android:layout_below="@+id/tvRealName"
+                tools:text = "Marvel"
+                android:layout_alignParentRight="false"
+                android:layout_alignParentEnd="true" />
 
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 
 
 
