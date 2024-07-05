@@ -49,6 +49,10 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
             cvElemento.setOnClickListener{
                 val intent = Intent(context, HeroDetailsActivity::class.java)
                 intent.putExtra("name", superhero.name)
+                intent.putExtra("photo",superhero.photo)
+                intent.putExtra("realname",superhero.realName)
+                intent.putExtra("company",superhero.publisher)
+                intent.putExtra("description",superhero.description)
                 context.startActivity(intent)
             }
 
