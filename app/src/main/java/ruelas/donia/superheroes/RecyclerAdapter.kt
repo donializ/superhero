@@ -1,11 +1,13 @@
 package ruelas.donia.superheroes
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.cardview.widget.CardView
 
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
@@ -14,13 +16,11 @@ import com.squareup.picasso.Picasso
 class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     var superheros: MutableList<Superhero>  = ArrayList()
     lateinit var context:Context
-
     //constructor
     fun RecyclerAdapter(superheros : MutableList<Superhero>, context: Context){
         this.superheros = superheros
         this.context = context
     }
-
     // Clase ViewHolder:  hace referencia a los items de la celda
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -31,6 +31,9 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         val realName = view.findViewById(R.id.tvRealName) as TextView
         val publisher = view.findViewById(R.id.tvPublisher) as TextView
         val avatar = view.findViewById(R.id.ivAvatar) as ImageView
+        val cvElemento = view.findViewById<CardView>(R.id.cvElemento)
+
+
 
         // dicho método lo llamamos desde  onBindViewHolder() para que rellene los datos
         fun bind(superhero:Superhero, context: Context){
@@ -38,7 +41,18 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
             realName.text = superhero.realName
             publisher.text = superhero.publisher
             //la vista (celda)
-            itemView.setOnClickListener(View.OnClickListener { Toast.makeText(context, superhero.name, Toast.LENGTH_SHORT).show() })
+            //itemView.setOnClickListener(View.OnClickListener {
+                //Toast.makeText(context, superhero.name, Toast.LENGTH_SHORT).show()
+
+            //})
+
+            cvElemento.setOnClickListener{
+                val intent = Intent(context, HeroDetailsActivity::class.java)
+                intent.putExtra("name", superhero.name)
+                context.startActivity(intent)
+            }
+
+
             avatar.loadUrl(superhero.photo)
         }
         fun ImageView.loadUrl(url: String) {
@@ -46,8 +60,8 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         }
     }
 
-
-    //coge cada una de las posiciones de la lista de superhéroes y pasarlas a la clase ViewHolder para que esta pinte todos los valores.
+    //coge cada una de las posiciones de la lista de superhéroes y
+    // pasarlas a la clase ViewHolder para que esta pinte todos los valores.
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = superheros.get(position)
         holder.bind(item, context)

@@ -7,6 +7,7 @@
     android:padding="5dp">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cvElemento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="10dp"
@@ -23,7 +24,6 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:scaleType="centerCrop" />
-
             <TextView
                 android:id="@+id/tvSuperhero"
                 android:layout_width="wrap_content"
@@ -53,12 +53,6 @@
                 tools:text = "Marvel"
                 android:layout_alignParentRight="false"
                 android:layout_alignParentEnd="true" />
-
-
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
-
-
-
-
 </RelativeLayout>
